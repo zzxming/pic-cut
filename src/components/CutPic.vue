@@ -17,7 +17,7 @@
 		},
 		aspectRatio: {
 			type: Number,
-			defualt: 5 / 3,
+			default: 5 / 3,
 		},
 	});
 	const emits = defineEmits(['cut']);
@@ -37,7 +37,7 @@
 
 		cropper.value = new Cropper(cropImg.value, {
 			checkCrossOrigin: true,
-			viewMode: 3,
+			viewMode: 0,
 			zoomOnWheel: false, // 是否可以通过移动鼠标来放大图像
 			aspectRatio: props.aspectRatio,
 			ready: () => {
@@ -115,19 +115,30 @@
 				@load="initCropper"
 			/>
 		</div>
-		<el-button
-			@click="sureCropper"
-			:loading="cutLoading"
-		>
-			确认剪裁
-		</el-button>
 	</div>
+	<el-button
+		class="cut_btn"
+		@click="sureCropper"
+		:loading="cutLoading"
+	>
+		确认剪裁
+	</el-button>
 </template>
 
 <style scoped>
 	.cut {
 		display: flex;
 		flex-direction: column;
+		width: 800px;
+		height: 480px;
+	}
+	.cut_wrapper {
+		width: 100%;
+		height: 100%;
+	}
+	.cut_btn {
+		width: 100%;
+		margin-top: 8px;
 	}
 	img {
 		width: 100%;

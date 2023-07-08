@@ -64,7 +64,6 @@
 		/>
 		<el-dialog
 			v-model="dialogVisible"
-			width="80%"
 			:destroy-on-close="true"
 		>
 			<CutPic
@@ -96,5 +95,8 @@
 	.item {
 		width: 100%;
 		margin: 0 auto;
+	}
+	:deep(.el-dialog) {
+		width: max-content;
 	}
 </style>
